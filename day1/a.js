@@ -1,6 +1,4 @@
-export {};
-
-const input = await Deno.readTextFile("./input.txt");
+const input = require("node:fs").readFileSync("./input.txt", "utf-8");
 
 const elves = input
   .split("\n\n")
@@ -10,6 +8,6 @@ const elveCalSums = elves
   .map((elve) => elve.reduce((acc, item) => acc + item, 0))
   .sort((a, b) => b - a);
 
-const result = elveCalSums.slice(0, 3).reduce((acc, item) => acc + item, 0);
+const result = elveCalSums[0];
 
 console.log(result);
